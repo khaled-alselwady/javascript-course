@@ -1,0 +1,69 @@
+# Ignore node_modules directory
+node_modules/
+
+# Ignore build directories
+dist/
+build/
+
+# Ignore dependency directories
+bower_components/
+jspm_packages/
+
+# Ignore log files
+*.log
+
+# Ignore environment variable files
+.env
+
+# Ignore coverage directories
+coverage/
+
+# Ignore editor-specific files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Ignore OS generated files
+.DS_Store
+Thumbs.db
+
+# Ignore package lock files
+package-lock.json
+yarn.lock
+
+# Ignore transpiled files
+*.map
+
+# Ignore minified files
+*.min.js
+*.min.css
+
+# Ignore temporary files
+*.tmp
+*.swp
+*.bak
+*.pid
+
+# Ignore cache files
+.cache/
+
+# Ignore dependency zip files
+*.zip
+*.tar.gz
+
+# Ignore files related to CI/CD
+.travis.yml
+.circleci/
+.github/
+.gitlab-ci.yml
+
+# Ignore test output
+test-output/
+coverage/
+
+# Ignore API keys or sensitive data
+secret.json
+
+# Ignore VSCode workspace settings file
+*.code-workspace
