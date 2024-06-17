@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Exercise One</title>
+</head>
+
+<body>
+  <script>
+    function greet(name = 'there') {
+      console.log(`Hello ${name}!`);
+    }
+
+    function greet2(name) {
+      if (!name) {
+        name = 'there';
+      }
+      console.log(`Hello ${name}!`);
+    }
+
+    greet2();
+  </script>
+</body>
+
+</html>
