@@ -6,15 +6,34 @@
 </head>
 
 <body>
+
+  <button onclick="
+    playGame('heads');
+    ">
+    heads
+  </button>
+
+  <button onclick="
+     playGame('tails');
+  ">
+    tails
+  </button>
+
   <script>
-    const randomNumber = Math.random();
+    function getRightGuess() {
+      const randomNumber = Math.random();
+      return (randomNumber < 0.5) ? 'heads' : 'tails';
+    }
 
-    const result = (randomNumber < 0.5) ? 'heads' : 'tails';
-    console.log(result);
+    function printResult(myGuess, rightGuess) {
+      (myGuess === rightGuess) ?
+        console.log('You win!') : console.log('You lose!');
+    }
 
-    const myGuess = 'heads';
-    (myGuess === result) ?
-      console.log('You win!') : console.log('You lose!');
+    function playGame(myGuess) {
+      const rightGuess = getRightGuess();
+      printResult(myGuess, rightGuess);
+    }
   </script>
 </body>
 
