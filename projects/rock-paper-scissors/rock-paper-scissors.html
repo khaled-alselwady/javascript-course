@@ -33,11 +33,7 @@
   </button>
 
   <script>
-    const score = {
-      wins: 0,
-      loses: 0,
-      ties: 0
-    };
+    const score = getInitializedScore();
 
     function getComputerMove() {
       // Math.random() => gets random numbers between 0 and 1. (>= 0 && < 1)
@@ -93,17 +89,38 @@
             break;
           }
       }
+
+      // localStorage [only supports strings in the parameters]
+      localStorage.setItem('score', JSON.stringify(score));
     }
 
     function resetScore() {
       score.wins = 0;
       score.loses = 0;
       score.ties = 0;
+
+      localStorage.removeItem('score');
     }
 
     function printResultInPopup(myMove, computerMove, result) {
       alert(`You picked ${myMove}, Computer picked ${computerMove}. ${result}
 Wins: ${score.wins}, Loses: ${score.loses}, Ties: ${score.ties}`);
+    }
+
+    function getInitializedScore() {
+      const storedScore = localStorage.getItem('score');
+      let score = null;
+
+      // score = storedScore !== '' ? JSON.parse(storedScore) : null;
+      score = storedScore ? JSON.parse(storedScore) : null;
+
+      score = score ?? {
+        wins: 0,
+        loses: 0,
+        ties: 0
+      };
+
+      return score;
     }
 
     function playGame(myMove) {
