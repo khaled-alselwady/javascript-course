@@ -12,7 +12,11 @@
       price: 2095
     };
 
-    console.log(product);
+    console.log(`Before increasing: ${JSON.stringify(product)}`);
+
+    product.price += 500;
+    console.log(`After increasing: ${JSON.stringify(product)}`);
+
   </script>
 </body>
 
