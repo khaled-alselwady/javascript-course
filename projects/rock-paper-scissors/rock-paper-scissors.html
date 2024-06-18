@@ -26,7 +26,19 @@
     Scissors
   </button>
 
+  <button onclick="
+    resetScore();
+  ">
+    Reset Score
+  </button>
+
   <script>
+    const score = {
+      wins: 0,
+      loses: 0,
+      ties: 0
+    };
+
     function getComputerMove() {
       // Math.random() => gets random numbers between 0 and 1. (>= 0 && < 1)
       const randomNumber = Math.random();
@@ -61,13 +73,43 @@
       }
     }
 
+    function updateScore(result) {
+      switch (result) {
+        case 'Tie.':
+          {
+            score.ties++;
+            break;
+          }
+
+        case 'You win.':
+          {
+            score.wins++;
+            break;
+          }
+
+        case 'You lose.':
+          {
+            score.loses++;
+            break;
+          }
+      }
+    }
+
+    function resetScore() {
+      score.wins = 0;
+      score.loses = 0;
+      score.ties = 0;
+    }
+
     function printResultInPopup(myMove, computerMove, result) {
-      alert(`You picked ${myMove}, Computer picked ${computerMove}. ${result}`);
+      alert(`You picked ${myMove}, Computer picked ${computerMove}. ${result}
+Wins: ${score.wins}, Loses: ${score.loses}, Ties: ${score.ties}`);
     }
 
     function playGame(myMove) {
       const computerMove = getComputerMove();
       const result = getResult(myMove, computerMove);
+      updateScore(result);
       printResultInPopup(myMove, computerMove, result);
     }
   </script>
