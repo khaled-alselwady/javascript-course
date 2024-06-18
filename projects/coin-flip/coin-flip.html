@@ -20,19 +20,36 @@
   </button>
 
   <script>
+
+    const score = {
+      wins: 0,
+      loses: 0
+    };
+
     function getRightGuess() {
       const randomNumber = Math.random();
       return (randomNumber < 0.5) ? 'heads' : 'tails';
     }
 
-    function printResult(myGuess, rightGuess) {
-      (myGuess === rightGuess) ?
-        console.log('You win!') : console.log('You lose!');
+    function getResult(myGuess, rightGuess) {
+      return (myGuess === rightGuess) ?
+        'You win!' : 'You lose!';
+    }
+
+    function updateScore(result) {
+      (result === 'You win!') ? score.wins++ : score.loses++;
+    }
+
+    function printResult(result) {
+      console.log(`${result}
+Wins: ${score.wins}, Loses: ${score.loses}`);
     }
 
     function playGame(myGuess) {
       const rightGuess = getRightGuess();
-      printResult(myGuess, rightGuess);
+      const result = getResult(myGuess, rightGuess);
+      updateScore(result);
+      printResult(result);
     }
   </script>
 </body>
