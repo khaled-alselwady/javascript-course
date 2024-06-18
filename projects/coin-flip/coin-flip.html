@@ -20,11 +20,7 @@
   </button>
 
   <script>
-
-    const score = {
-      wins: 0,
-      loses: 0
-    };
+    const score = getInitializedScore();
 
     function getRightGuess() {
       const randomNumber = Math.random();
@@ -36,8 +32,26 @@
         'You win!' : 'You lose!';
     }
 
+    function getInitializedScore() {
+      const storedScore = localStorage.getItem('score');
+
+      let score = storedScore ? JSON.parse(storedScore) : null;
+
+      score = score ?? {
+        wins: 0,
+        loses: 0
+      };
+
+      return score;
+    }
+
+    function saveScore() {
+      localStorage.setItem('score', JSON.stringify(score));
+    }
+
     function updateScore(result) {
       (result === 'You win!') ? score.wins++ : score.loses++;
+      saveScore();
     }
 
     function printResult(result) {
