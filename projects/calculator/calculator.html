@@ -102,6 +102,7 @@
         // Only use eval() for learning purposes.
         calculation = eval(calculation);
         showCalculationInPopup(calculation);
+        saveCalculation();
       ">
       =
     </button>
@@ -116,13 +117,14 @@
     <button onclick="
         calculation = '';
         console.log('Cleared.');
+        localStorage.removeItem('calculation');
       ">
       Clear
     </button>
   </div>
 
   <script>
-    let calculation = '';
+    let calculation = localStorage.getItem('calculation') || '';
 
     function showCalculationInPopup(calculation) {
       console.log(calculation);
@@ -131,6 +133,12 @@
     function updateCalculation(value) {
       calculation += value;
       showCalculationInPopup(calculation);
+
+      saveCalculation();
+    }
+
+    function saveCalculation() {
+      localStorage.setItem('calculation', calculation);
     }
   </script>
 </body>
