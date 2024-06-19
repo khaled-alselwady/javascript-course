@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>09-Exercise-three</title>
+</head>
+
+<body>
+
+  <input type="text" placeholder="Your name" class="js-input-name">
+
+  <button onclick="
+    printResult();
+  ">Submit</button>
+
+  <p class="js-result"></p>
+
+  <script>
+    function getResult(name) {
+      return `Your name is: ${name}`;
+    }
+
+    function printResult() {
+      const inputElement = document.querySelector('.js-input-name');
+
+      const name = inputElement.value;
+
+      document.querySelector('.js-result').innerHTML = getResult(name);
+    }
+  </script>
+</body>
+
+</html>
