@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>09-Exercise-two</title>
+</head>
+
+<body>
+
+  <button class="js-heads" onclick="
+      printResult('heads');
+    ">heads</button>
+
+  <button class="js-tails" onclick="
+    printResult('tails');
+  ">tails</button>
+
+  <p class="js-choice"></p>
+
+  <script>
+    function printResult(choice) {
+      document.querySelector('.js-choice').innerHTML = `You chose: ${choice}`;
+    }
+  </script>
+</body>
+
+</html>
