@@ -7,7 +7,9 @@
 
 <body>
 
-  <input type="text" placeholder="Your name" class="js-input-name">
+  <input type="text" placeholder="Your name" class="js-input-name" onkeydown="
+    handleNameKeydown(event);
+    ">
 
   <button onclick="
     printResult();
@@ -26,6 +28,12 @@
       const name = inputElement.value;
 
       document.querySelector('.js-result').innerHTML = getResult(name);
+    }
+
+    function handleNameKeydown(event) {
+      if (event.key === 'Enter') {
+        printResult();
+      }
     }
   </script>
 </body>
