@@ -71,8 +71,12 @@
     Reset Cart
   </button>
 
+  <p class="js-cart-quantity"></p>
+
   <script>
     let cartQuantity = 0;
+
+    showCartQuantity();
 
     function resetCartQuantity() {
       cartQuantity = 0;
@@ -80,7 +84,8 @@
     }
 
     function showCartQuantity() {
-      console.log(`Cart quantity: ${cartQuantity}`);
+      document.querySelector('.js-cart-quantity')
+        .innerHTML = `Cart quantity: ${cartQuantity}`
     }
 
     function updateCartQuantity(change) {
@@ -96,7 +101,8 @@
 
       cartQuantity += change;
       showCartQuantity();
-    } 
+    }
+
   </script>
 </body>
 
