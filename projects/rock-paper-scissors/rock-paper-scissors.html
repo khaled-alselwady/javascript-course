@@ -26,6 +26,10 @@
     Scissors
   </button>
 
+  <p class="js-result"></p>
+  <p class="js-moves"></p>
+  <p class="js-score"></p>
+
   <button onclick="
     resetScore();
   ">
@@ -34,6 +38,21 @@
 
   <script>
     const score = getInitializedScore();
+
+    showScoreElement();
+
+    function showScoreElement() {
+      document.querySelector('.js-score').innerHTML = showScore();
+    }
+
+    function showResultElement(result) {
+      document.querySelector('.js-result').innerHTML = result;
+    }
+
+    function showMovesElement(myMove, computerMove) {
+      document.querySelector('.js-moves').innerHTML =
+        `You ${myMove} - ${computerMove} Computer`;
+    }
 
     function getComputerMove() {
       // Math.random() => gets random numbers between 0 and 1. (>= 0 && < 1)
@@ -100,11 +119,17 @@
       score.ties = 0;
 
       localStorage.removeItem('score');
+
+      showScoreElement();
+    }
+
+    function showScore() {
+      return `Wins: ${score.wins}, Loses: ${score.loses}, Ties: ${score.ties}`;
     }
 
     function printResultInPopup(myMove, computerMove, result) {
       alert(`You picked ${myMove}, Computer picked ${computerMove}. ${result}
-Wins: ${score.wins}, Loses: ${score.loses}, Ties: ${score.ties}`);
+${showScore()}`);
     }
 
     function getInitializedScore() {
@@ -127,7 +152,9 @@ Wins: ${score.wins}, Loses: ${score.loses}, Ties: ${score.ties}`);
       const computerMove = getComputerMove();
       const result = getResult(myMove, computerMove);
       updateScore(result);
-      printResultInPopup(myMove, computerMove, result);
+      showScoreElement();
+      showResultElement(result);
+      showMovesElement(myMove, computerMove);
     }
   </script>
 </body>
