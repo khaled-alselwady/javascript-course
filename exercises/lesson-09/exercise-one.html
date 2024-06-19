@@ -7,9 +7,13 @@
 
 <body>
   <button>9a</button>
+  <button class="js-second-button">9b</button>
 
   <script>
     console.log(document.querySelector('button'));
+
+    document.querySelector('.js-second-button')
+      .innerHTML = '9b done!';
   </script>
 </body>
 
