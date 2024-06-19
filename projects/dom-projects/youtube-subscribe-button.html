@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Youtube Subscribe Button</title>
+</head>
+
+<body>
+  <p>
+    Youtube Subscribe Button
+  </p>
+
+  <button class="js-subscribe-button" onclick="
+    subscribe();
+  ">
+    Subscribe
+  </button>
+
+  <script>
+    function subscribe() {
+      const subscribeButtonElement = document.querySelector('.js-subscribe-button');
+
+      // innerHTML => take all the text including the white spaces in the beginning and ending.
+      // innerText => take only the text without the white spaces.
+      if (subscribeButtonElement.innerText === 'Subscribe') {
+        subscribeButtonElement.innerHTML = 'Subscriber';
+      }
+      else {
+        subscribeButtonElement.innerHTML = 'Subscribe';
+      }
+    }
+  </script>
+</body>
+
+</html>
