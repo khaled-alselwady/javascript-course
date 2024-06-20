@@ -3,6 +3,27 @@
 
 <head>
   <title>Amazon Shipping Calculator</title>
+
+  <style>
+    p {
+      font-family: Arial;
+    }
+
+    .cost-input {
+      padding: 10px;
+      font-size: 15px;
+    }
+
+    .calculate-button {
+      background-color: green;
+      color: white;
+      border: none;
+      padding: 12px 17px;
+      font-size: 15px;
+      cursor: pointer;
+    }
+  </style>
+
 </head>
 
 <body>
@@ -10,11 +31,11 @@
   <p>Orders under $40 = +$10 shipping.</p>
   <p>Orders over $40 = FREE shipping.</p>
 
-  <input class="js-cost-input" type="text" placeholder="cost of order" onkeydown="
+  <input class="js-cost-input cost-input" type="text" placeholder="Cost of order" onkeydown="
     handleCostKeydown(event);
   ">
 
-  <button onclick="
+  <button class="calculate-button" onclick="
     showCost();
   ">
     Calculate
