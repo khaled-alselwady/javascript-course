@@ -3,6 +3,27 @@
 
 <head>
   <title>Youtube Subscribe Button</title>
+
+  <style>
+    .subscribe-button {
+      background-color: black;
+      color: white;
+      border: none;
+      font-weight: bold;
+      padding: 10px 15px;
+      border-radius: 50px;
+      cursor: pointer;
+    }
+
+    .is-subscribed {
+      background-color: rgb(240, 240, 240);
+      color: black;
+    }
+
+    p {
+      font-family: Arial;
+    }
+  </style>
 </head>
 
 <body>
@@ -10,7 +31,7 @@
     Youtube Subscribe Button
   </p>
 
-  <button class="js-subscribe-button" onclick="
+  <button class="js-subscribe-button subscribe-button" onclick="
     subscribe();
   ">
     Subscribe
@@ -24,9 +45,11 @@
       // innerText => take only the text without the white spaces.
       if (subscribeButtonElement.innerText === 'Subscribe') {
         subscribeButtonElement.innerHTML = 'Subscriber';
+        subscribeButtonElement.classList.add('is-subscribed');
       }
       else {
         subscribeButtonElement.innerHTML = 'Subscribe';
+        subscribeButtonElement.classList.remove('is-subscribed');
       }
     }
   </script>
