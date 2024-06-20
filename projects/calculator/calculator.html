@@ -15,130 +15,74 @@
     Calculator
   </p>
 
+  <p class="js-result"></p>
+
   <div class="first-row">
-    <button onclick="
-        updateCalculation('1');
-      ">
-      1
-    </button>
-    <button onclick="
-        updateCalculation('2');
-      ">
-      2
-    </button>
-    <button onclick="
-       updateCalculation('3');
-  ">
-      3
-    </button>
-    <button onclick="
-        updateCalculation(' + ');
-      ">
-      +
-    </button>
+    <button onclick="updateCalculation('1');">1</button>
+    <button onclick="updateCalculation('2');">2</button>
+    <button onclick="updateCalculation('3');">3</button>
+    <button onclick="updateCalculation(' + ');">+</button>
   </div>
 
   <div class="second-row">
-    <button onclick="
-        updateCalculation('4');
-      ">
-      4
-    </button>
-    <button onclick="
-        updateCalculation('5');
-      ">
-      5
-    </button>
-    <button onclick="
-       updateCalculation('6');
-  ">
-      6
-    </button>
-    <button onclick="
-        updateCalculation(' - ');
-      ">
-      -
-    </button>
+    <button onclick="updateCalculation('4');">4</button>
+    <button onclick="updateCalculation('5');">5</button>
+    <button onclick="updateCalculation('6');">6</button>
+    <button onclick="updateCalculation(' - ');">-</button>
   </div>
 
   <div class="third-row">
-    <button onclick="
-        updateCalculation('7');
-      ">
-      7
-    </button>
-    <button onclick="
-        updateCalculation('8');
-      ">
-      8
-    </button>
-    <button onclick="
-       updateCalculation('9');
-  ">
-      9
-    </button>
-    <button onclick="
-        updateCalculation(' * ');
-      ">
-      *
-    </button>
+    <button onclick="updateCalculation('7');">7</button>
+    <button onclick="updateCalculation('8');">8</button>
+    <button onclick="updateCalculation('9');">9</button>
+    <button onclick="updateCalculation(' * ');">*</button>
   </div>
 
   <div class="fourth-row">
-    <button onclick="
-        updateCalculation('0');
-      ">
-      0
-    </button>
-    <button onclick="
-        updateCalculation('.');
-      ">
-      .
-    </button>
-    <button onclick="
-        // Note: eval() takes a string and runs it as code.
-        // Avoid using eval() in real world projects since
-        // it can potentially be given harmful code to run.
-        // Only use eval() for learning purposes.
-        calculation = eval(calculation);
-        showCalculationInPopup(calculation);
-        saveCalculation();
-      ">
-      =
-    </button>
-    <button onclick="
-        updateCalculation(' / ');
-      ">
-      /
-    </button>
+    <button onclick="updateCalculation('0');">0</button>
+    <button onclick="updateCalculation('.');">.</button>
+    <button onclick="calculateResult();">=</button>
+    <button onclick="updateCalculation(' / ');">/</button>
   </div>
 
   <div class="last-row">
-    <button onclick="
-        calculation = '';
-        console.log('Cleared.');
-        localStorage.removeItem('calculation');
-      ">
-      Clear
-    </button>
+    <button onclick="clearCalculation();">Clear</button>
   </div>
 
   <script>
     let calculation = localStorage.getItem('calculation') || '';
 
-    function showCalculationInPopup(calculation) {
-      console.log(calculation);
+    displayCalculation(calculation);
+
+    function displayCalculation(calculation) {
+      document.querySelector('.js-result').innerHTML = calculation;
     }
 
     function updateCalculation(value) {
       calculation += value;
-      showCalculationInPopup(calculation);
-
+      displayCalculation(calculation);
       saveCalculation();
     }
 
     function saveCalculation() {
       localStorage.setItem('calculation', calculation);
+    }
+
+    function calculateResult() {
+      // Note: eval() takes a string and runs it as code.
+      // Avoid using eval() in real world projects since
+      // it can potentially be given harmful code to run.
+      // Only use eval() for learning purposes.
+      calculation = eval(calculation);
+
+      saveCalculation();
+      displayCalculation(calculation);
+    }
+
+    function clearCalculation() {
+      calculation = '';
+      localStorage.removeItem('calculation');
+      displayCalculation(calculation);
     }
   </script>
 </body>
