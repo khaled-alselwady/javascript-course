@@ -15,3 +15,7 @@ p {
   font-size: 15px;
   cursor: pointer;
 }
+
+.is-input-negative {
+  color: red;
+}

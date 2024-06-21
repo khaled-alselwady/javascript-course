@@ -8,7 +8,20 @@ function showCost() {
   // Convert the numbers to cents by * 100.
   const cost = Number(inputElement.value) * 100;
 
-  document.querySelector('.js-cost').innerHTML = `$${addShippingToCost(cost) / 100}`; // Convert back to dollars at the end.
+  handleCostElement(cost);
+}
+
+function handleCostElement(cost) {
+  const costElement = document.querySelector('.js-cost');
+
+  if (cost < 0) {
+    costElement.innerHTML = 'Error: cost cannot be less than $0';
+    costElement.classList.add('is-input-negative');
+  }
+  else {
+    costElement.innerHTML = `$${addShippingToCost(cost) / 100}`; // Convert back to dollars at the end.
+    costElement.classList.remove('is-input-negative');
+  }
 }
 
 function handleCostKeydown(event) {
