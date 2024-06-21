@@ -1,0 +1,55 @@
+body {
+  background-color: rgb(25, 25, 25);
+  color: white;
+  font-family: Arial;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.move-icon {
+  height: 50px;
+}
+
+.move-button {
+  background-color: transparent;
+  border: 3px solid white;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.result {
+  font-weight: bold;
+  font-size: 23px;
+  margin-top: 55px;
+}
+
+.tie-result {
+  color: yellow;
+}
+
+.win-result {
+  color: rgb(61, 222, 61);
+}
+
+.lose-result {
+  color: red;
+}
+
+.score {
+  font-size: 16px;
+  margin-top: 60px;
+}
+
+.reset-socre-button {
+  background-color: white;
+  border: none;
+  padding: 8px 15px;
+  font-size: 15px;
+  cursor: pointer;
+}
