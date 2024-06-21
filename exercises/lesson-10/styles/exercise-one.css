@@ -1,0 +1,25 @@
+.add-to-cart-button {
+  background-color: rgb(255, 216, 20);
+  border: none;
+  padding: 6px 50px;
+  border-radius: 40px;
+  margin-bottom: 20px;
+}
+
+.request-now-button,
+.schedule-for-later {
+  border: none;
+  font-weight: bold;
+  padding: 10px 13px;
+  border-radius: 5px;
+}
+
+.request-now-button {
+  background-color: black;
+  color: white;
+  margin-right: 20px;
+}
+
+.schedule-for-later {
+  background-color: rgb(230, 230, 230);
+}
