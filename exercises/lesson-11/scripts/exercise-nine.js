@@ -66,8 +66,9 @@ function removeLastTwoEggs(foods) {
     }
   }
 
-  //return result.reverse();
-  return reverseArray(result);
+  // return result.reverse();
+  // return reverseArray(result);
+  return result.slice().reverse();
 }
 
 const foods = ['egg', 'apple', 'egg', 'egg', 'ham', 'egg'];
