@@ -7,15 +7,21 @@
 </head>
 
 <body>
-  <p>Todo List Practice 1 </p>
+  <p>Todo List Practice 2 </p>
 
-  <input type="text" placeholder="Todo name" class="js-name-input">
+  <input type="text" placeholder="Todo name" class="js-name-input" onkeydown="
+    handleKeyDownInput(event);
+  ">
 
   <button onclick="
     addToDo();
   ">
     Add
   </button>
+
+  <div class="js-to-do-list-container">
+
+  </div>
 
   <script src="scripts/to-do-list.js"></script>
 </body>
