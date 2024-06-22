@@ -1,4 +1,22 @@
-const toDoList = [];
+const toDoList = getToDoListFromLocalStorage();
+
+// To show to do lists that stored in Local Storage.
+renderToDoList();
+
+function getToDoListFromLocalStorage() {
+  const storedToDoList = localStorage.getItem('to-do-list');
+  let toDoList = null;
+
+  toDoList = storedToDoList ? JSON.parse(storedToDoList) : null;
+
+  toDoList = toDoList || [];
+
+  return toDoList;
+}
+
+function saveToDoListIntoLocalStorage() {
+  localStorage.setItem('to-do-list', JSON.stringify(toDoList));
+}
 
 function generateHTMLParagraphs() {
   let htmlParagraphs = '';
@@ -32,6 +50,7 @@ function addToDo() {
   inputElement.value = '';
 
   renderToDoList();
+  saveToDoListIntoLocalStorage();
 }
 
 function handleKeyDownInput(event) {
