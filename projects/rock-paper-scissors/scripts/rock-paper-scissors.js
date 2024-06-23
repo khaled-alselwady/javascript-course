@@ -1,4 +1,6 @@
 const score = getInitializedScore();
+let isAutoPlaying = false;
+let intervalID = null;
 
 showScoreElement();
 
@@ -49,7 +51,7 @@ function showMovesElement(myMove, computerMove) {
     Computer`;
 }
 
-function getComputerMove() {
+function getRandomMove() {
   // Math.random() => gets random numbers between 0 and 1. (>= 0 && < 1)
   const randomNumber = Math.random();
   let computerMove = '';
@@ -144,10 +146,41 @@ function getInitializedScore() {
 }
 
 function playGame(myMove) {
-  const computerMove = getComputerMove();
+  const computerMove = getRandomMove();
   const result = getResult(myMove, computerMove);
   updateScore(result);
   showScoreElement();
   showResultElement(result);
   showMovesElement(myMove, computerMove);
+}
+
+function changeNameOfAutoPlayButton() {
+  const buttonElement = document.querySelector('.js-auto-play-button');
+
+  if (!buttonElement) {
+    return;
+  }
+
+  const name = buttonElement.innerText;
+
+  if (name === 'Auto Play') {
+    buttonElement.innerHTML = 'Stop Play';
+  }
+  else {
+    buttonElement.innerHTML = 'Auto Play';
+  }
+}
+
+function autoPlay() {
+  if (!isAutoPlaying) {
+    intervalID = setInterval(() => {
+      const myRandomMove = getRandomMove();
+      playGame(myRandomMove);
+    }, 1000);
+    isAutoPlaying = true;
+  }
+  else {
+    clearInterval(intervalID);
+    isAutoPlaying = false;
+  }
 }

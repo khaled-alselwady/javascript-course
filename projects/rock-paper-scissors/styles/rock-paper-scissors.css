@@ -46,7 +46,8 @@ body {
   margin-top: 60px;
 }
 
-.reset-socre-button {
+.reset-socre-button,
+.auto-play-button {
   background-color: white;
   border: none;
   padding: 8px 15px;
