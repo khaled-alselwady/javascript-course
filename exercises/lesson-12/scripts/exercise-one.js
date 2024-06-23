@@ -4,3 +4,14 @@ const add = function () {
 
 add();
 add();
+
+function runTwice(param) {
+  param();
+  param();
+}
+
+runTwice(function () {
+  console.log('12b');
+});
+
+runTwice(add);
