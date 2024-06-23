@@ -42,7 +42,7 @@ function removeItemFromArray(index) {
 function generateHTML() {
   let html = '';
 
-  toDoList.forEach(function (toDoListObject, index) {
+  toDoList.forEach((toDoListObject, index) => {
     // const name = toDoListObject.name;
     // const dueDate = toDoListObject.dueDate;
     // if the property and the variable have the same name, we can use this syntax, this is called [Destructuring].
