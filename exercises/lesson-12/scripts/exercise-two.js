@@ -8,6 +8,7 @@ function changeTextOfButtonWithDelay() {
   const name = buttonElement.innerText;
 
   if (name === 'Start') {
+    buttonElement.innerHTML = 'Loading...'
     setTimeout(function () {
       buttonElement.innerHTML = 'Finished!';
     }, 1000);
