@@ -3,6 +3,7 @@ let isAutoPlaying = false;
 let intervalID = null;
 
 showScoreElement();
+initializeEventListeners();
 
 function showScoreElement() {
   document.querySelector('.js-score').innerHTML = showScore();
@@ -183,4 +184,53 @@ function autoPlay() {
     clearInterval(intervalID);
     isAutoPlaying = false;
   }
+}
+
+function handleKeydownEvent(event) {
+  const keyPress = event.key.toLowerCase();
+  switch (keyPress) {
+    case 'r': {
+      playGame('rock');
+      break;
+    }
+    case 'p': {
+      playGame('paper');
+      break;
+    }
+    case 's': {
+      playGame('scissors');
+      break;
+    }
+  }
+}
+
+function initializeEventListeners() {
+  document.querySelector('.js-rock-button')
+    ?.addEventListener('click', () => {
+      playGame('rock');
+    });
+
+  document.querySelector('.js-paper-button')
+    ?.addEventListener('click', () => {
+      playGame('paper');
+    });
+
+  document.querySelector('.js-scissors-button')
+    ?.addEventListener('click', () => {
+      playGame('scissors');
+    });
+
+  document.querySelector('.js-reset-score-button')
+    ?.addEventListener('click', resetScore);
+
+  document.querySelector('.js-auto-play-button')
+    ?.addEventListener('click', () => {
+      changeNameOfAutoPlayButton();
+      autoPlay();
+    });
+
+  // we chose `body` because we want to apply that on the page level.
+  document.body.addEventListener('keydown', (event) => {
+    handleKeydownEvent(event);
+  });
 }
