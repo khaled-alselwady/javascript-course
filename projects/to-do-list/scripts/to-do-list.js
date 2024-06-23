@@ -39,6 +39,17 @@ function removeItemFromArray(index) {
   return toDoList.splice(index, 1);
 }
 
+function handleOnClickEventOfDeleteButtons() {
+  // we use `querySelectorAll` to access all the elements that has a class = "js-delete-button".
+  document.querySelectorAll('.js-delete-button')?.forEach((deleteButton, index) => {
+    deleteButton?.addEventListener('click', () => {
+      removeItemFromArray(index);
+      removeElementInToDoListFromLocalStorage(index);
+      renderToDoList();
+    })
+  });
+}
+
 function generateHTML() {
   let html = '';
 
@@ -57,11 +68,7 @@ function generateHTML() {
 
     <div>${dueDate}</div>
 
-    <button onclick="
-      removeItemFromArray(${index});
-      removeElementInToDoListFromLocalStorage(${index});
-      renderToDoList();
-    " class="delete-button"> Delete 
+    <button class="js-delete-button delete-button"> Delete 
     </button>`
   });
 
@@ -76,6 +83,8 @@ function renderToDoList() {
   }
 
   containerElement.innerHTML = generateHTML();
+
+  handleOnClickEventOfDeleteButtons();
 }
 
 function addToDo() {
@@ -119,3 +128,6 @@ function handleKeyDownInput(event) {
     addToDo();
   }
 }
+
+document.querySelector('.js-add-button')
+  ?.addEventListener('click', addToDo);
