@@ -9,17 +9,19 @@
 <body>
   <p>Todo List Practice 2 </p>
 
-  <input type="text" placeholder="Todo name" class="js-name-input" onkeydown="
-    handleKeyDownInput(event);
-  ">
+  <div class="to-do-list-input-grid">
+    <input type="text" placeholder="Todo name" class="js-name-input name-input" onkeydown="
+      handleKeyDownInput(event);
+    ">
+    <input type="date" class="js-due-date-input due-date-input">
+    <button onclick="
+      addToDo();
+    " class="add-button">
+      Add
+    </button>
+  </div>
 
-  <button onclick="
-    addToDo();
-  ">
-    Add
-  </button>
-
-  <div class="js-to-do-list-container">
+  <div class="js-to-do-list-container to-do-list-grid">
 
   </div>
 
