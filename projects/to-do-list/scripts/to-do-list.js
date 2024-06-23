@@ -42,15 +42,14 @@ function removeItemFromArray(index) {
 function generateHTML() {
   let html = '';
 
-  for (let i = 0; i < toDoList.length; i++) {
-    const toDoListObject = toDoList[i];
+  toDoList.forEach(function (toDoListObject, index) {
     // const name = toDoListObject.name;
     // const dueDate = toDoListObject.dueDate;
     // if the property and the variable have the same name, we can use this syntax, this is called [Destructuring].
     const { name, dueDate } = toDoListObject;
 
     if (!name || !dueDate) {
-      continue;
+      return;
     }
 
     html += `
@@ -59,12 +58,12 @@ function generateHTML() {
     <div>${dueDate}</div>
 
     <button onclick="
-      removeItemFromArray(${i});
-      removeElementInToDoListFromLocalStorage(${i});
+      removeItemFromArray(${index});
+      removeElementInToDoListFromLocalStorage(${index});
       renderToDoList();
     " class="delete-button"> Delete 
     </button>`
-  }
+  });
 
   return html;
 }
