@@ -9,7 +9,7 @@ function changeTextOfButtonWithDelay() {
 
   if (name === 'Start') {
     buttonElement.innerHTML = 'Loading...'
-    setTimeout(function () {
+    setTimeout(() => {
       buttonElement.innerHTML = 'Finished!';
     }, 1000);
   }
@@ -17,3 +17,6 @@ function changeTextOfButtonWithDelay() {
     buttonElement.innerHTML = 'Start';
   }
 }
+
+document.querySelector('.js-start-button')
+  ?.addEventListener('click', changeTextOfButtonWithDelay);
