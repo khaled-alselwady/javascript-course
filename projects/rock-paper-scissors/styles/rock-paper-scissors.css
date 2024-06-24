@@ -47,10 +47,22 @@ body {
 }
 
 .reset-socre-button,
-.auto-play-button {
+.auto-play-button,
+.yes-button,
+.no-button {
   background-color: white;
   border: none;
   padding: 8px 15px;
   font-size: 15px;
   cursor: pointer;
+}
+
+.js-confirmation-message {
+  display: flex;
+  align-items: center;
+}
+
+.yes-button,
+.no-button {
+  margin-left: 10px;
 }

@@ -5,6 +5,10 @@ let intervalID = null;
 showScoreElement();
 initializeEventListeners();
 
+function showScore() {
+  return `Wins: ${score.wins}, Losses: ${score.loses}, Ties: ${score.ties}`;
+}
+
 function showScoreElement() {
   document.querySelector('.js-score').innerHTML = showScore();
 }
@@ -121,15 +125,6 @@ function resetScore() {
   showScoreElement();
 }
 
-function showScore() {
-  return `Wins: ${score.wins}, Losses: ${score.loses}, Ties: ${score.ties}`;
-}
-
-function printResultInPopup(myMove, computerMove, result) {
-  alert(`You picked ${myMove}, Computer picked ${computerMove}. ${result}
-${showScore()}`);
-}
-
 function getInitializedScore() {
   const storedScore = localStorage.getItem('score');
   let score = null;
@@ -165,7 +160,7 @@ function changeNameOfAutoPlayButton() {
   const name = buttonElement.innerText;
 
   if (name === 'Auto Play') {
-    buttonElement.innerHTML = 'Stop Play';
+    buttonElement.innerHTML = 'Stop Playing';
   }
   else {
     buttonElement.innerHTML = 'Auto Play';
@@ -186,6 +181,43 @@ function autoPlay() {
   }
 }
 
+function changeContentOfConfirmationMessageContainer(content) {
+  const confirmationMessageContainerElement = document.querySelector('.js-confirmation-message');
+
+  if (!confirmationMessageContainerElement) {
+    return;
+  }
+
+  confirmationMessageContainerElement.innerHTML = content;
+}
+
+function generateConfirmationMessageHTML() {
+  return `
+    <p>Are you sure you want to reset the score?</p>
+    <button class="js-yes-button yes-button">Yes</button>
+    <button class="js-no-button no-button">No</button>
+  `;
+}
+
+function hideConfirmationMessage() {
+  changeContentOfConfirmationMessageContainer('');
+}
+
+function showConfirmationMessage() {
+  changeContentOfConfirmationMessageContainer(generateConfirmationMessageHTML());
+
+  document.querySelector('.js-yes-button')
+    ?.addEventListener('click', () => {
+      resetScore();
+      hideConfirmationMessage();
+    });
+
+  document.querySelector('.js-no-button')
+    ?.addEventListener('click', () => {
+      hideConfirmationMessage();
+    });
+}
+
 function handleKeydownEvent(event) {
   const keyPress = event.key.toLowerCase();
   switch (keyPress) {
@@ -199,6 +231,15 @@ function handleKeydownEvent(event) {
     }
     case 's': {
       playGame('scissors');
+      break;
+    }
+    case 'a': {
+      changeNameOfAutoPlayButton();
+      autoPlay();
+      break;
+    }
+    case 'backspace': {
+      showConfirmationMessage();
       break;
     }
   }
@@ -221,7 +262,7 @@ function initializeEventListeners() {
     });
 
   document.querySelector('.js-reset-score-button')
-    ?.addEventListener('click', resetScore);
+    ?.addEventListener('click', showConfirmationMessage);
 
   document.querySelector('.js-auto-play-button')
     ?.addEventListener('click', () => {
