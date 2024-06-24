@@ -44,3 +44,9 @@ function removeMessage() {
     }
   }
 }
+
+document.querySelector('.js-add-message-button')
+  ?.addEventListener('click', addMessage);
+
+document.querySelector('.js-remove-message-button')
+  ?.addEventListener('click', removeMessage);
