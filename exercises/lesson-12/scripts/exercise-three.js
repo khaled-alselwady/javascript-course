@@ -13,7 +13,10 @@ function displaySaveMessage() {
   // it doesn't remove the message too quickly.
   clearTimeout(TimeoutID);
 
-  TimeoutID = setTimeout(function () {
+  TimeoutID = setTimeout(() => {
     messageElement.innerHTML = '';
   }, 2000)
 }
+
+document.querySelector('.js-add-to-cart-button')
+  ?.addEventListener('click', displaySaveMessage);
