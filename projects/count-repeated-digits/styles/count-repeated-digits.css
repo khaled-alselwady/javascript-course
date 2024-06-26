@@ -1,0 +1,141 @@
+.header-container {
+  background-color: black;
+  padding: 15px;
+}
+
+.question {
+  margin-bottom: 10px;
+}
+
+.random-number-for-search {
+  display: flex;
+  justify-content: center;
+  font-size: 40px;
+  cursor: default;
+}
+
+main {
+  background-color: rgb(98, 98, 98);
+  padding-top: 20px;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 50px;
+  height: 70px;
+}
+
+.random-numbers-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 40px);
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.random-number {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  cursor: default;
+}
+
+.set-button,
+.check-button {
+  background-color: black;
+  color: white;
+  padding: 10px 30px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.set-button {
+  margin-right: 50px;
+}
+
+.input-container {
+  margin-left: 20px;
+}
+
+.answer-input,
+.label-input {
+  font-size: 25px;
+  width: 150px;
+}
+
+.result {
+  margin-left: 20px;
+}
+
+@media (min-width: 1000px) {
+  .random-number {
+    width: 55px;
+    height: 55px;
+    font-size: 27px;
+  }
+
+  .random-numbers-grid {
+    grid-template-columns: repeat(6, 55px);
+    gap: 35px;
+  }
+
+  .set-button,
+  .check-button {
+    padding: 10px 40px;
+    font-size: 23px;
+  }
+
+  .buttons-container {
+    margin-left: 150px;
+  }
+
+  .result {
+    font-size: 35px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .random-number {
+    width: 70px;
+    height: 70px;
+  }
+
+  .random-numbers-grid {
+    grid-template-columns: repeat(6, 70px);
+    gap: 50px;
+  }
+
+  .set-button,
+  .check-button {
+    padding: 10px 45px;
+    font-size: 26px;
+  }
+
+  .buttons-container {
+    margin-left: 700px;
+  }
+
+  .result {
+    font-size: 40px;
+  }
+}
+
+.input-and-buttons-container {
+  display: flex;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.js-correct-result {
+  color: greenyellow;
+}
+
+.js-wrong-result {
+  color: red;
+}
