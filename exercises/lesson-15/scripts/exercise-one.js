@@ -12,3 +12,15 @@ const datebeforeOneMonth = today.subtract(1, 'month');
 console.log(datebeforeOneMonth.format('MMMM D'));
 
 console.log(today.format('dddd'));
+
+function isWeekend(date) {
+  if (!date) {
+    return;
+  }
+
+  const dayOfWeek = date.format('dddd');
+
+  return dayOfWeek === 'Saturday' || dayOfWeek === 'Sunday';
+}
+
+console.log(isWeekend(dateAfterFiveDays));
