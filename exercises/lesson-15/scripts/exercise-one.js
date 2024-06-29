@@ -10,3 +10,5 @@ console.log(dateAfterOneMonth.format('MMMM D'));
 
 const datebeforeOneMonth = today.subtract(1, 'month');
 console.log(datebeforeOneMonth.format('MMMM D'));
+
+console.log(today.format('dddd'));
