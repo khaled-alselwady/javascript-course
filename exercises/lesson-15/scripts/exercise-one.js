@@ -1,4 +1,5 @@
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js';
+import isSatSun from './date.js';
 
 const today = dayjs();
 
@@ -13,14 +14,4 @@ console.log(datebeforeOneMonth.format('MMMM D'));
 
 console.log(today.format('dddd'));
 
-function isWeekend(date) {
-  if (!date) {
-    return;
-  }
-
-  const dayOfWeek = date.format('dddd');
-
-  return dayOfWeek === 'Saturday' || dayOfWeek === 'Sunday';
-}
-
-console.log(isWeekend(dateAfterFiveDays));
+console.log(isSatSun(dateAfterFiveDays));
