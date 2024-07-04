@@ -1,4 +1,4 @@
-class Car {
+export class Car {
   brand = '';
   model = '';
   speed = 0;
